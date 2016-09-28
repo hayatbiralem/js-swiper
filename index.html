@@ -46,10 +46,12 @@
     <script>
         var area = document.querySelector('.swipe-area');
         var jsSwiper = new JSSwiper(area);
-        area.addEventListener('tap swipeLeft swipeRight', function(event){
-            console.warn('Gesture:', event.type);
-            console.warn('JSSwiper instance:', event.detail.jsSwiper, jsSwiper === event.detail.jsSwiper);
-            alert(JSON.stringify(event.detail.jsSwiper));
+        ['tap swipeLeft swipeRight'].forEach(function(eventType){
+            area.addEventListener(eventType, function(event){
+                console.warn('Gesture:', event.type);
+                console.warn('JSSwiper instance:', event.detail.jsSwiper, jsSwiper === event.detail.jsSwiper);
+                alert(JSON.stringify(event.detail.jsSwiper));
+            });
         });
     </script>
 </body>
