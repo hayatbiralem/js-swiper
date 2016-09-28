@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSSwiper</title>
+    <style>
+        .swipe-area {
+            display: flex;
+            width: 100%;
+            height: 400px;
+
+            background-color: red;
+            align-items: center;
+            justify-content: center;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis iste maiores, ad nesciunt dolores inventore iure minima! Quasi omnis, voluptatibus!</p>
+    <p>Perspiciatis nesciunt nulla earum necessitatibus sapiente fugit at totam, blanditiis voluptate beatae temporibus facere ex! Ullam voluptatibus magnam, vitae ea.</p>
+    <p>Magni dolorum provident, suscipit alias aperiam quam ratione recusandae earum, soluta commodi dicta ipsum voluptatum totam nemo! Esse, explicabo, at.</p>
+    <p>In hic, harum distinctio ullam totam atque. Rerum minus, est in, nostrum libero eius ipsam sapiente saepe, ducimus ullam quaerat.</p>
+    <p>Rem repellat quod alias, voluptas pariatur! Amet, dolorem corporis eligendi eaque autem, dignissimos. Velit inventore delectus architecto perferendis nulla corporis.</p>
+    <p>Excepturi autem dicta, quia. Ratione dolores totam illo nisi ut, quis aut laudantium porro. Sit minima distinctio culpa, quidem magnam!</p>
+    <p>Iure quod sapiente tempora iste ipsa debitis illo incidunt vero laborum consequatur deleniti dolor recusandae, eligendi neque? Expedita facere, illo!</p>
+    <p>Expedita similique excepturi aliquid modi earum vel, quas molestiae non ut dolorum veritatis ab quos libero labore provident, inventore repellat.</p>
+    <p>Labore natus odio doloremque nam, ratione quod, placeat excepturi pariatur neque repellendus in itaque quos est officia, blanditiis deserunt nobis?</p>
+    <p>Repellat commodi quam, veritatis dolore odio fugit impedit vitae atque. Mollitia magni aliquid reprehenderit dicta excepturi consequuntur ipsum ut totam?</p>
+
+    <div class="swipe-area">Swipe Me!</div>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum mollitia molestiae soluta eaque id at magnam in nemo commodi saepe.</p>
+    <p>Delectus non, a doloremque pariatur quod. Eum, porro, earum. Magnam, delectus, dolorum! Repellat nulla officia, dolor tempore! Amet et, perferendis.</p>
+    <p>Sit laudantium repudiandae eveniet praesentium esse deserunt omnis quis porro earum cum, quidem corporis excepturi! Iure ullam a voluptatibus mollitia!</p>
+    <p>Illum quaerat, illo eum libero cum, ut, sit, laboriosam esse in sequi neque laborum. Esse delectus vero debitis quidem distinctio.</p>
+    <p>Sint atque laudantium, libero ducimus esse unde mollitia, saepe laboriosam perspiciatis, ipsum sed tenetur illum, maiores non accusamus! Commodi, animi?</p>
+    <p>Ipsa reiciendis hic aperiam labore earum iusto, soluta ipsam. Aliquid incidunt temporibus provident, reprehenderit quo iusto fuga soluta odit totam?</p>
+    <p>Delectus nam et sunt, similique at possimus tempore quos voluptatum ab repudiandae. Sed cumque dolor ea, error similique enim vitae!</p>
+    <p>Sequi aut beatae eos culpa eum, sit iste ullam, suscipit fugit ut voluptate, quisquam velit accusamus, reprehenderit minima magnam veniam.</p>
+    <p>Hic repellendus dicta nihil, facere dignissimos ratione. Reprehenderit, reiciendis, vitae. Qui, ab obcaecati voluptatum molestias reiciendis voluptatibus facere libero illum!</p>
+    <p>Molestiae necessitatibus corrupti aliquid numquam asperiores omnis aliquam vitae iusto tempora nisi, sint praesentium, dolorum provident accusantium sapiente nostrum ipsum!</p>
+
+    <script src="js-swiper.js"></script>
+    <script>
+        var area = document.querySelector('.swipe-area');
+        var jsSwiper = new JSSwiper(area);
+        area.addEventListener('swipeLeft swipeRight', function(event){
+            console.warn('Gesture:', event.type);
+            console.warn('JSSwiper instance:', event.detail.jsSwiper, jsSwiper === event.detail.jsSwiper);
+        });
+    </script>
+</body>
+</html>
