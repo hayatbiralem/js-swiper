@@ -49,6 +49,7 @@
         area.addEventListener('swipeLeft swipeRight', function(event){
             console.warn('Gesture:', event.type);
             console.warn('JSSwiper instance:', event.detail.jsSwiper, jsSwiper === event.detail.jsSwiper);
+            alert(JSON.stringify(event.detail.jsSwiper));
         });
     </script>
 </body>
