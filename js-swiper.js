@@ -6,7 +6,6 @@
         this.last = null;
         this.moved = 0;
         this.precision = 50;
-        this.types = ['left', 'right', 'tap'];
         this.events = {
             swipeLeft: null,
             swipeRight: null,
@@ -15,7 +14,6 @@
         this.type = 'none';
 
         if(this.options.vertical) {
-            this.types.concat(['up', 'down']);
             this.events.swipeUp = null;
             this.events.swipeDown = null;
         }
@@ -41,21 +39,21 @@
             }
             if(_this.moved > 0) {
                 if(_this.last.clientX - _this.first.clientX < -_this.precision) {
-                    _this.type = 'left';
+                    _this.type = 'swipeLeft';
                 } else if(_this.last.clientX - _this.first.clientX > _this.precision) {
-                    _this.type = 'right';
+                    _this.type = 'swipeRight';
                 } else if(_this.last.clientY - _this.first.clientY < -_this.precision) {
-                    _this.type = 'up';
+                    _this.type = 'swipeUp';
                 } else if(_this.last.clientY - _this.first.clientY > _this.precision) {
-                    _this.type = 'down';
+                    _this.type = 'swipeDown';
                 } else {
-                    _this.type = 'tap;'
+                    _this.type = 'tap';
                 }
             } else {
                 _this.type = 'tap';
             }
 
-            if(_this.types.indexOf(_this.type) !== -1) {
+            if(_this.type in _this.events) {
                 event.preventDefault();
                 _this.callback(_this.type);
             }
@@ -84,7 +82,7 @@
     JSSwiper.prototype.setCustomEvent = function (eventName) {
         this.events[eventName] = new CustomEvent(eventName, {
             detail: {
-                rider: this
+                jsSwiper: this
             },
             bubbles: true,
             cancelable: true
@@ -94,7 +92,7 @@
     JSSwiper.prototype.getCustomEvent = function (eventName) {
         // if(eventName in this.events) {
         if(eventName in this.events && this.events[eventName]) {
-            this.events[eventName].detail.jsSwiper = this;
+            this.events[eventName].detail.jsSwiper = this
         } else {
             this.setCustomEvent(eventName);
         }
